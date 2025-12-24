@@ -1,6 +1,6 @@
 # Personal-Configuration
 ## iTerm2
-In ~/Library/Application\ Support/iTerm2/Scripts/AutoLaunch Directory :
+In `~/Library/Application\ Support/iTerm2/Scripts/AutoLaunch Directory` :
 - Script **random_color.py** : set a random iTerm2 Theme for the initial session and each time a new session opens
 
 ## Starship
