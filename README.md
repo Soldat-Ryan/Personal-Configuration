@@ -1,5 +1,9 @@
 # Personal-Configuration
+<<<<<<< HEAD
 iTerm, starship, zsh, zim, and so on
+=======
+iTerm, starship, zsh, and so on
+>>>>>>> 28621a403818a4bc8332e572f20448b340674187
 
 ## iTerm2
 In ~/Library/Application\ Support/iTerm2/Scripts/AutoLaunch Directory :
@@ -10,6 +14,7 @@ Need to install Nerd Fonts :
 > $ brew install font-sauce-code-pro-nerd-font
 
 Need to configure the font in iTerm : 
+<<<<<<< HEAD
 > Settings > Profiles > Text > Font : choose SauceCodePro Nerd Font
 
 ## ZSH
@@ -18,3 +23,6 @@ Need to configure the font in iTerm :
 ## Zim
 - .zimrc
 
+=======
+> Settings > Profiles > Text > Font : choose SauceCodePro Nerd Font
+>>>>>>> 28621a403818a4bc8332e572f20448b340674187
