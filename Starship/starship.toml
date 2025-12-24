@@ -41,6 +41,12 @@ truncation_length = 4
 truncation_symbol = ''
 style = 'bold green'
 
+[git_status]
+disabled = false
+
+[git_metrics]
+disabled = true
+
 [aws]
 symbol = " "
 

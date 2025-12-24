@@ -3,6 +3,10 @@
 import iterm2
 import random
 
+EXCLUDED_THEMES = {
+    "Regular"
+}
+
 async def SetPresetInSession(connection, session, preset_name):
     preset = await iterm2.ColorPreset.async_get(connection, preset_name)
     if not preset:
@@ -18,6 +22,7 @@ async def SetPresetInSession(connection, session, preset_name):
 async def main(connection):
     app = await iterm2.async_get_app(connection)
     color_preset_names = await iterm2.ColorPreset.async_get_list(connection)
+    color_preset_names = [name for name in color_preset_names if name not in EXCLUDED_THEMES]
     print(f"✅ {len(color_preset_names)} available color presets")
 
     # Get theme of the first initial session
