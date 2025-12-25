@@ -1,5 +1,12 @@
 #!/usr/bin/env python3
 
+# Print iTerm theme in configuration 
+# /usr/libexec/PlistBuddy -c "Print :'Custom Color Presets':'Theme_Name'" ~/Library/Preferences/com.googlecode.iterm2.plist
+# e.g. /usr/libexec/PlistBuddy -c "Print :'Custom Color Presets':'Dracula'" ~/Library/Preferences/com.googlecode.iterm2.plist
+# Delete iTerm theme in configuration 
+# /usr/libexec/PlistBuddy -c "Delete :'Custom Color Presets':'Theme_Name'" ~/Library/Preferences/com.googlecode.iterm2.plist
+# e.g. /usr/libexec/PlistBuddy -c "Delete :'Custom Color Presets':'Dracula'" ~/Library/Preferences/com.googlecode.iterm2.plist
+
 import iterm2
 import random
 

@@ -42,7 +42,11 @@ truncation_symbol = ''
 style = 'bold green'
 
 [git_status]
-disabled = false
+disabled = true
+
+[git_commit]
+tag_symbol = '  '
+disabled = true
 
 [git_metrics]
 disabled = true
@@ -97,9 +101,6 @@ symbol = " "
 
 [gcloud]
 symbol = " "
-
-[git_commit]
-tag_symbol = '  '
 
 [golang]
 symbol = " "

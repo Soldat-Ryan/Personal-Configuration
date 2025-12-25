@@ -16,3 +16,5 @@ Need to configure the font in iTerm :
 ## Zim
 - .zimrc
 
+## Tmux
+- .tmux.conf

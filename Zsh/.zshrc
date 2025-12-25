@@ -67,8 +67,6 @@ setopt complete_in_word
 # show completion menu on successive tab press
 setopt auto_menu
 
-unsetopt always_to_end
-
 # Now, tab does only completion, not expansion
 # https://zsh.sourceforge.io/Guide/zshguide06.html
 # echo $PWD -> no expansion
@@ -148,7 +146,15 @@ alias grep='grep --color=auto'
 alias please='sudo $(fc -ln -1)'
 
 # ---- FUNCTIONS ---- #
+# print iterm theme
+function print_iterm_theme() {
+  /usr/libexec/PlistBuddy -c "Print :'Custom Color Presets':'$1'" ~/Library/Preferences/com.googlecode.iterm2.plist
+}
 
+# delete iterm theme
+function delete_iterm_theme() {
+  /usr/libexec/PlistBuddy -c "Delete :'Custom Color Presets':'$1'" ~/Library/Preferences/com.googlecode.iterm2.plist
+}
 
 # ---- VARIABLES ---- #
 export ITERM_THEME_DIR="$HOME/.config/iterm2/Colors_preset/"
@@ -158,7 +164,6 @@ export ITERM_THEME_DIR="$HOME/.config/iterm2/Colors_preset/"
 # xref: https://github.com/starship/starship/issues/3418
 type starship_zle-keymap-select >/dev/null || \
   {
-    echo "Load starship"
     eval "$(starship init zsh)"
   }
 
