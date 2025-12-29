@@ -1,6 +1,6 @@
 # Personal-Configuration
 
-![example](./screen_example.png)
+![example](./screen_example2.png)
 
 ## iTerm2
 In `~/Library/Application\ Support/iTerm2/Scripts/AutoLaunch Directory` :
