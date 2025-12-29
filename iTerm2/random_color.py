@@ -24,7 +24,12 @@ async def SetPresetInSession(connection, session, preset_name):
     await profile.async_set_color_preset(preset)
 
     # Print Theme name in terminal (need "setopt interactive_comments" in ~/.zshrc)
-    await session.async_send_text(f"# 🎨 {preset_name}\n")
+    # await session.async_send_text(f"# 🎨 {preset_name}\n")
+    
+    # Set Vim Theme
+    # ⚠️ Requires set_vim_theme function (check Zsh/.zshrc line 169)
+    vim_theme = preset_name.replace(" ", "-")
+    await session.async_send_text(f'set_vim_theme "{vim_theme}"\n')
 
 async def main(connection):
     app = await iterm2.async_get_app(connection)
