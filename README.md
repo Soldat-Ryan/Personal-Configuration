@@ -3,6 +3,7 @@
 ![example](./screen_example2.png)
 
 ## iTerm2
+- themes/*.itermcolors
 In `~/Library/Application\ Support/iTerm2/Scripts/AutoLaunch Directory` :
 - Script **random_color.py** : set a random iTerm2 Theme for the initial session and each time a new session opens
 
@@ -24,3 +25,4 @@ Need to configure the font in iTerm :
 
 ## VIM
 - .vimrc
+- colors/*.vim
