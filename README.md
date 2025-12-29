@@ -18,3 +18,6 @@ Need to configure the font in iTerm :
 
 ## Tmux
 - .tmux.conf
+
+## VIM
+- .vimrc
