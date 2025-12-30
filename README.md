@@ -1,5 +1,12 @@
 # Personal-Configuration
 
+## Fresh install (BSD) [⚠️ NOT TESTED]
+
+```sh
+chmod u+x ./install.sh
+./install.sh
+```
+
 ![example](./screen_example2.png)
 
 ## iTerm2
