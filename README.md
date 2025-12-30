@@ -15,6 +15,7 @@ Need to configure the font in iTerm :
 > Settings > Profiles > Text > Font : choose SauceCodePro Nerd Font
 
 ## Zsh
+- .zprofile
 - .zshrc
 
 ## Zim

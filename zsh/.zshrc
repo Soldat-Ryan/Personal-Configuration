@@ -28,22 +28,13 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 # ------------------
 
 ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
-# Download zimfw plugin manager if missing.
-if [[ ! -e ${ZIM_HOME}/zimfw.zsh ]]; then
-  if (( ${+commands[curl]} )); then
-    curl -fsSL --create-dirs -o ${ZIM_HOME}/zimfw.zsh \
-        https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh
-  else
-    mkdir -p ${ZIM_HOME} && wget -nv -O ${ZIM_HOME}/zimfw.zsh \
-        https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh
-  fi
-fi
-# Install missing modules, and update ${ZIM_HOME}/init.zsh if missing or outdated.
+# Install missing modules and update ${ZIM_HOME}/init.zsh if missing or outdated.
 if [[ ! ${ZIM_HOME}/init.zsh -nt ${ZIM_CONFIG_FILE:-${ZDOTDIR:-${HOME}}/.zimrc} ]]; then
-  source ${ZIM_HOME}/zimfw.zsh init
+  source /opt/homebrew/opt/zimfw/share/zimfw.zsh init
 fi
 # Initialize modules.
 source ${ZIM_HOME}/init.zsh
+
 # }}} End configuration added by Zim Framework install
 
 # -------------------------- 
@@ -128,15 +119,16 @@ bindkey -e
 
 # ---- HELP builtins ---- #
 # Enable the `help` command on zsh builtins
+unalias run-help
 autoload run-help
-HELPDIR=/usr/share/zsh/"${ZSH_VERSION}"/help
+export HELPDIR="/usr/share/zsh/${ZSH_VERSION}/help"
 # alias help=run-help (in the ALIAS section)
 
 # ---- WIRESHARK -----
 # export SSLKEYLOGFILE=~/.config/wireshark/.ssl-key.log
 
 # ---- PATH ---- #
-PATH=$PATH:~/.local/bin
+# ⚠️ Do not change the PATH here (repetition)
 
 # ---- ALIAS ---- #
 alias dirs='dirs -v'
@@ -170,8 +162,16 @@ function set_vim_theme() {
   alias vim="vim +'colorscheme $1'"
 }
 
+function print_tmux_colors() {
+  for i in {0..255}; do
+    printf "\e[48;5;%sm %3s \e[0m" "$i" "$i"
+    (( (i+1) % 16 == 0 )) && echo
+  done
+}
+
 # ---- VARIABLES ---- #
 export ITERM_THEME_DIR="$HOME/.config/iterm2/Colors_preset/"
+export REPO="$HOME/.local/opt/"
 
 # ---- Starship prompt integration (⚠️ must be EOF) ---- #
 # Check that the function `starship_zle-keymap-select()` is defined.
