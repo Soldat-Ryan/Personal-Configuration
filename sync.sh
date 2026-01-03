@@ -13,7 +13,7 @@ ZSHRC="$HOME/.zshrc"
 ZPROFILE="$HOME/.zprofile"
 STARSHIP="$HOME/.config/starship.toml"
 ZIMRC="$HOME/.zimrc"
-ITERM_SCRIPT=$HOME/Library/Application\ Support/iTerm2/Scripts/AutoLaunch/
+ITERM_SCRIPT_DIR=$HOME/Library/Application\ Support/iTerm2/Scripts/AutoLaunch/
 ITERM_THEMES="$HOME/.config/iterm2/Colors_preset/"
 TMUX="$HOME/.tmux.conf"
 VIM="$HOME/.vimrc"
@@ -33,8 +33,9 @@ function install() {
     cp ./zsh/.zprofile $ZPROFILE && log "Copying $ZPROFILE"
     cp ./starship/starship.toml $STARSHIP  && log "Copying $STARSHIP"
     cp ./zim/.zimrc $ZIMRC && log "Copying $ZIMRC"
-    cp ./iTerm2/* "$ITERM_SCRIPT"  && log "Copying $ITERM_SCRIPT/*"
-    if [[ ! -d $ITERM_THEMES ]]; then mkdir $ITERM_THEMES fi
+    if [[ ! -d $ITERM_SCRIPT ]]; then mkdir $ITERM_SCRIPT; fi
+    cp ./iTerm2/random_color.py "$ITERM_SCRIPT"  && log "Copying $ITERM_SCRIPT/random_color.py"
+    if [[ ! -d $ITERM_THEMES ]]; then mkdir $ITERM_THEMES; fi
     cp ./iTerm2/themes/* "$ITERM_THEMES" && log "Copying $ITERM_THEMES/*"
     cp ./tmux/.tmux.conf $TMUX  && log "Copying $TMUX"
     cp ./vim/.vimrc $VIM  && log "Copying $VIM"
