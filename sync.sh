@@ -51,11 +51,11 @@ function backup() {
     cp $ZPROFILE ./zsh/.zprofile && log "Copying $ZPROFILE"
     cp $STARSHIP ./starship/ && log "Copying $STARSHIP"
     cp $ZIMRC ./zim/ && log "Copying $ZIMRC"
-    cp "$ITERM_SCRIPT"* ./iTerm2/ && log "Copying $ITERM_SCRIPT/*"
+    cp "$ITERM_SCRIPT_DIR"* ./iTerm2/ && log "Copying $ITERM_SCRIPT_DIR/*"
     cp "$ITERM_THEMES"*.itermcolors ./iTerm2/themes/ && log "Copying $ITERM_THEMES*"
     cp $TMUX ./tmux/ && log "Copying $TMUX"
     cp $VIM ./vim/ && log "Copying $VIM"
-    cp "$VIM_THEME"* ./vim/colors/ && log "Copying $VIM_THEME"
+    cp "$VIM_THEME_DIR"* ./vim/colors/ && log "Copying $VIM_THEME_DIR"
     log_backup "Synchronisation ending"
 }
 
