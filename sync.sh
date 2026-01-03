@@ -34,7 +34,8 @@ function install() {
     cp ./starship/starship.toml $STARSHIP  && log "Copying $STARSHIP"
     cp ./zim/.zimrc $ZIMRC && log "Copying $ZIMRC"
     cp ./iTerm2/* "$ITERM_SCRIPT"  && log "Copying $ITERM_SCRIPT/*"
-    cp ./iTerm2/themes/* "$ITERM_THEMES" && log "Copying $ITERM_THEMES/*"   # Requires directory: ITERM_THEMES
+    if [[ ! -d $ITERM_THEMES ]]; then mkdir $ITERM_THEMES fi
+    cp ./iTerm2/themes/* "$ITERM_THEMES" && log "Copying $ITERM_THEMES/*"
     cp ./tmux/.tmux.conf $TMUX  && log "Copying $TMUX"
     cp ./vim/.vimrc $VIM  && log "Copying $VIM"
     cp ./vim/colors/* "$VIM_THEME"  && log "Copying $VIM_THEME"
