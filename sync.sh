@@ -17,7 +17,7 @@ ITERM_SCRIPT_DIR=$HOME/Library/Application\ Support/iTerm2/Scripts/AutoLaunch/
 ITERM_THEMES="$HOME/.config/iterm2/Colors_preset/"
 TMUX="$HOME/.tmux.conf"
 VIM="$HOME/.vimrc"
-VIM_THEME="$HOME/.vim/colors/"
+VIM_THEME_DIR="$HOME/.vim/colors/"
 
 ## LOG FUNCTION
 log_backup() { printf "${COLOR_BACKUP}========= $1 ========== ${RESET}\n"; }
@@ -33,13 +33,14 @@ function install() {
     cp ./zsh/.zprofile $ZPROFILE && log "Copying $ZPROFILE"
     cp ./starship/starship.toml $STARSHIP  && log "Copying $STARSHIP"
     cp ./zim/.zimrc $ZIMRC && log "Copying $ZIMRC"
-    if [[ ! -d $ITERM_SCRIPT_DIR ]]; then mkdir $ITERM_SCRIPT_DIR; fi
+    if [[ ! -d $ITERM_SCRIPT_DIR ]]; then mkdir "$ITERM_SCRIPT_DIR"; fi
     cp ./iTerm2/random_color.py "$ITERM_SCRIPT_DIR"  && log "Copying $ITERM_SCRIPT_DIR/random_color.py"
     if [[ ! -d $ITERM_THEMES ]]; then mkdir $ITERM_THEMES; fi
     cp ./iTerm2/themes/* "$ITERM_THEMES" && log "Copying $ITERM_THEMES/*"
     cp ./tmux/.tmux.conf $TMUX  && log "Copying $TMUX"
     cp ./vim/.vimrc $VIM  && log "Copying $VIM"
-    cp ./vim/colors/* "$VIM_THEME"  && log "Copying $VIM_THEME"
+    if [[ ! -d $VIM_THEME_DIR ]]; then mkdir $VIM_THEME_DIR; fi
+    cp ./vim/colors/* "$VIM_THEME_DIR"  && log "Copying $VIM_THEME_DIR"
     log_install "Synchronisation ending"
 }
 
