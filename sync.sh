@@ -33,8 +33,8 @@ function install() {
     cp ./zsh/.zprofile $ZPROFILE && log "Copying $ZPROFILE"
     cp ./starship/starship.toml $STARSHIP  && log "Copying $STARSHIP"
     cp ./zim/.zimrc $ZIMRC && log "Copying $ZIMRC"
-    if [[ ! -d $ITERM_SCRIPT ]]; then mkdir $ITERM_SCRIPT; fi
-    cp ./iTerm2/random_color.py "$ITERM_SCRIPT"  && log "Copying $ITERM_SCRIPT/random_color.py"
+    if [[ ! -d $ITERM_SCRIPT_DIR ]]; then mkdir $ITERM_SCRIPT_DIR; fi
+    cp ./iTerm2/random_color.py "$ITERM_SCRIPT_DIR"  && log "Copying $ITERM_SCRIPT_DIR/random_color.py"
     if [[ ! -d $ITERM_THEMES ]]; then mkdir $ITERM_THEMES; fi
     cp ./iTerm2/themes/* "$ITERM_THEMES" && log "Copying $ITERM_THEMES/*"
     cp ./tmux/.tmux.conf $TMUX  && log "Copying $TMUX"
