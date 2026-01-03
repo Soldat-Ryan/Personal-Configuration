@@ -22,7 +22,7 @@ VIM_THEME_DIR="$HOME/.vim/colors/"
 ## LOG FUNCTION
 log_backup() { printf "${COLOR_BACKUP}========= $1 ========== ${RESET}\n"; }
 log_install() { printf "${COLOR_INSTALL}========= $1 ========== ${RESET}\n"; }
-log_warning() { printf "${COLOR_WARNING}[+] $1 ${COLOR_FAINTED}\n"; }
+log_warning() { printf "${COLOR_WARNING}[!] $1 ${COLOR_FAINTED}\n"; }
 log() { printf "${COLOR_SYNC}[+] $1 ${RESET}\n"; }
 
 
@@ -31,8 +31,10 @@ function install() {
     log_install "Synchronisation starting - [Install Mode]"
     cp ./zsh/.zshrc $ZSHRC && log "Copying $ZSHRC"
     cp ./zsh/.zprofile $ZPROFILE && log "Copying $ZPROFILE"
+    log_warning "Need Zim & Starship installed via brew (cf. install.sh)"
     cp ./starship/starship.toml $STARSHIP  && log "Copying $STARSHIP"
     cp ./zim/.zimrc $ZIMRC && log "Copying $ZIMRC"
+    log_warning "Need Python Runtime (iTerm > Scripts > AutoLaunch > random_color.py)"
     if [[ ! -d $ITERM_SCRIPT_DIR ]]; then mkdir "$ITERM_SCRIPT_DIR"; fi
     cp ./iTerm2/random_color.py "$ITERM_SCRIPT_DIR"  && log "Copying $ITERM_SCRIPT_DIR/random_color.py"
     if [[ ! -d $ITERM_THEMES ]]; then mkdir $ITERM_THEMES; fi
